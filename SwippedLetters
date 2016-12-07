@@ -1,0 +1,53 @@
+import java.util.*;
+public class SwippedLetters {
+	public static void main(String[] args) {
+		Scanner console=new Scanner(System.in);
+		System.out.println("Enter two strings:");
+		String input1=console.next();
+		String input2=console.next();
+		int count=0;
+		char x=' ';
+		char y=' ';
+		int a=0;
+		int b=0;
+		boolean test=false;
+		while(!test) {
+			if(input1.length()==input2.length()) {
+				for(int i=0;i<=input1.length()-1;i++) {
+					x=input1.charAt(i);
+					y=input2.charAt(i);
+					a=x-y;
+					if(i<input1.length()-1) {
+						i++;
+						x=input1.charAt(i);
+						y=input2.charAt(i);
+						b=x-y;
+					}
+					if(a==b) {
+						count++;
+					}
+				}
+				if(count==input1.length()-1) {
+					System.out.println("correct.");
+					test=true;
+				} else {
+					System.out.println("Try again.");
+					input1=console.next();
+					input2=console.next();
+					test=false;
+				}
+			} else {
+				System.out.println("Try again.");
+				input1=console.next();
+				input2=console.next();
+				test=false;
+			}
+		}
+	}
+}
+
+
+
+
+
+
